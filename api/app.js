@@ -1,11 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import authRoute from "./routes/auth";
 
 const app = express();
 const port = 3000;
 
 dotenv.config();
+app.use("/api/auth", authRoute);
 
 mongoose
   .connect(process.env.MONGO_URL)

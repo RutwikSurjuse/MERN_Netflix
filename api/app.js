@@ -4,10 +4,11 @@ import mongoose from "mongoose";
 import authRoute from "./routes/auth.js";
 
 const app = express();
+app.use(express.json());
 const port = 3000;
 
 dotenv.config();
-app.use("/api/auth", authRoute);
+app.use("/api/auth", authRoute); //This should always be in server (.js) file
 
 mongoose
   .connect(process.env.MONGO_URL)
